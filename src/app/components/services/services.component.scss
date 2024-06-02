@@ -1,0 +1,69 @@
+Code SCSS pour le composant Home avec images
+SCSS
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+img {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.features {
+  margin-top: 40px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.col-md-4 {
+  flex: 0 0 33.33%;
+  padding: 10px;
+}
+
+.feature-box {
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.call-to-action {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

@@ -1,0 +1,80 @@
+<app-header></app-header>
+<div class="content-container">
+    <div class="url-input-container">
+        <h3>Qui est le leader ? Entrez les URLs et dévoilez les secrets de vos concurrents !</h3>
+        <form (submit)="onSubmit()">
+            <input type="url" id="urlField1" [(ngModel)]="url1" name="url1" placeholder="https://profil.com" required>
+            <input type="url" id="urlField2" [(ngModel)]="url2" name="url2" placeholder="https://concurrent.com" required>
+            <button type="submit">Analyser</button>
+        </form>
+    </div>
+    <div class="video-container">
+        <video width="420" height="340" autoplay loop muted>
+            <source src="assets/champ.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+<style> 
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Aligns items at the start of the container */
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.url-input-container {
+    flex: 1;  /* Allows the container to expand to take up free space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    padding: 20px;
+    margin-right: 20px; /* Space between the two columns */
+}
+
+.video-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.url-input-container h3 {
+    color: #131e83;
+    margin-bottom: 20px;
+}
+
+.url-input-container form {
+    width: 100%; /* Ensures the form takes the full width of its container */
+}
+
+.url-input-container input {
+    width: 100%; /* Full width of the form */
+    padding: 10px;
+    margin-bottom: 20px; /* Space between inputs */
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.url-input-container button {
+    padding: 10px 20px;
+    background-color: #131e83;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block; /* Treats the button as a block element */
+    margin: 0 auto; /* Automatically centers the button horizontally */
+}
+
+.url-input-container button:hover {
+    background-color: #4b6ae7;
+}
+
+</style>
+<app-footer></app-footer>

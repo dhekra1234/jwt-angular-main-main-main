@@ -1,0 +1,72 @@
+  <style> 
+    .navbar-darko {
+    background: linear-gradient(to right, #8669ed, #727cf5) !important; /* Dégradé violet */
+    color: #fff; /* Couleur de texte blanc pour tout le texte dans la barre */
+}
+
+.navbar-darko .navbar-brand,
+.navbar-darko .nav-link {
+    color: #fff !important; /* Force la couleur du texte des éléments de navigation à blanc */
+}
+
+.navbar-darko .nav-link:hover,
+.navbar-darko .nav-link:focus {
+    color: #e0e0e0 !important; /* Une couleur légèrement différente pour l'effet hover */
+}
+</style>
+  <nav class="navbar navbar-expand-lg py-lg-2.5 navbar-darko">
+    <div class="container">
+
+        <!-- logo -->
+        <a class="navbar-brand me-lg-5" routerLink="/home">
+            <img src="assets/images/loggo.png" alt="" class="logo-dark" height="50">
+            <h1 style="color: rgb(220, 158, 238);">SocialKPI</h1>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="mdi mdi-menu"></i>
+        </button>
+
+        <!-- menus -->
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+            <!-- left menu -->
+            <ul class="navbar-nav me-auto align-items-center">
+                <li class="nav-item mx-lg-1">
+                    <a class="nav-link " routerLink="/home">Acceuil</a>
+                </li>
+                <li class="nav-item mx-lg-1">
+                    <a class="nav-link"  routerLink="/about">A propos</a>
+                </li>
+                <li class="nav-item mx-lg-1">
+                    <a class="nav-link" routerLink="/register">S'inscrire</a>
+                </li>
+                <li class="nav-item mx-lg-1">
+                    <a class="nav-link" routerLink="/login">Se connecter</a>
+                </li>
+            </ul>
+
+            <!-- right menu -->
+
+
+        </div>
+    </div>
+</nav>
+<style>
+ .navbar-brand {
+    display: flex; /* Utilise Flexbox pour aligner les éléments côte à côte */
+    align-items: center; /* Aligner verticalement les éléments au centre */
+    justify-content: center; /* Centrer les éléments horizontalement */
+    gap: 5px; /* Ajouter un peu d'espace entre le logo et le h1 */
+}
+
+.logo-dark {
+    display: block; /* Assure que l'image ne soit pas en ligne */
+    height: 43px; /* Hauteur spécifique pour l'image */
+}
+
+h1 {
+    margin: 0; /* Retire la marge par défaut autour de h1 */
+    font-size: 32px; /* Vous pouvez ajuster la taille de police comme désiré */
+}
+</style>

@@ -1,0 +1,30 @@
+<h2> Liste des utilisateurs </h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> Nom </th>
+            <th> Email </th>
+            <th> Mot de passe</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let user of user" >
+            <td> {{ user.username }} </td>
+            <td> {{ user.email }} </td>
+            <td> {{ user.password }} </td>
+            <td>
+                <button (click) = "updateUser(user.userid)" class = "btn btn-info"> Mise à jour </button>
+                <button (click) = "deleteUser(user.userid)" class = "btn btn-danger" style="margin-left: 10px"> Supprimer </button>
+                <button (click) = "userDetails(user.userid)" class = "btn btn btn-info btn-green" style="margin-left: 10px"> Consulter </button>
+            </td>
+
+            </tr>
+            </tbody>
+            </table>
+            <style>
+                .btn-green {
+    background-color: #28a745; /* Vert Bootstrap */
+    border-color: #28a745; /* Assortir la bordure */
+}
+            </style>

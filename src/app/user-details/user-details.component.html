@@ -1,0 +1,59 @@
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Utilisation d'une police plus lisible */
+            background: url('assets/images/bg-pattern-light.svg') no-repeat center center; /* Image de fond */
+            background-size: cover; /* Couvre tout l'arrière-plan */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            color: #333; /* Couleur de texte */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Arrière-plan blanc semi-transparent */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+        }
+
+        h3 {
+            text-align: center; /* Titre centré */
+            color: #4a54f1; /* Couleur du titre */
+            padding-bottom: 10px; /* Espacement sous le titre */
+        }
+
+        div {
+            margin-bottom: 10px; /* Espacement entre les divs */
+        }
+
+        label {
+            font-weight: normal; /* Normalisation du gras car le <b> s'en charge */
+        }
+
+        b {
+            color: #555; /* Couleur plus sombre pour le gras */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Details utilisateur</h3>
+        <div>
+            <label><b>Nom:</b></label> {{user.username}}
+        </div>
+        <div>
+            <label><b>Email:</b></label> {{user.email}}
+        </div>
+        <div>
+            <label><b>Mot de passe :</b></label> {{user.password}}
+        </div>
+    </div>
+</body>

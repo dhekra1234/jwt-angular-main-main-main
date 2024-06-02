@@ -1,0 +1,84 @@
+<app-header> </app-header>>
+<div class="main-container">
+    <div class="content-wrapper">
+        <h1>Votre audience vous attend !</h1>
+        <p>Faites le premier pas vers une meilleure compréhension de votre audience. Sélectionnez une plateforme pour commencer.</p>
+    </div>
+    <div class="platform-selection">
+        <div class="platform" id="facebook">
+            <img src="assets/fb.png" alt="Facebook">
+            <button routerLink="/url-indep">Analyser Facebook</button>
+        </div>
+        <div class="platform" id="instagram">
+            <img src="assets/insta.png" alt="Instagram">
+            <button routerLink="/url-insta-pro">Analyser Instagram</button>
+        </div>
+        <!-- Nouveau bloc pour LinkedIn -->
+        <div class="platform" id="linkedin">
+            <img src="assets/link.png" alt="LinkedIn">
+            <button routerLink="/url-indep">Analyser LinkedIn</button>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
+<style>
+    .main-container { 
+        display: flex;          
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;    
+    height: 90vh;          
+    padding: 100px; 
+}
+
+.content-wrapper {
+    text-align: center;     /* Centre le texte horizontalement */
+    width: 100%;            /* Assure que le wrapper prend toute la largeur disponible */
+    max-width: 600px;       /* Fixe une largeur maximale pour le contenu, adaptée à votre design */
+}
+
+/* Assurez-vous que le reste du CSS reste inchangé */
+
+.platform-selection {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.platform {
+    flex: 1; /* Assure une répartition égale de l'espace entre tous les blocs */
+    text-align: center; /* Centre le contenu de chaque plateforme */
+    padding: 20px; /* Ajoute de l'espace à l'intérieur de chaque plateforme */
+    border-right: 2px solid #555; /* Ajoute une bordure à droite pour chaque plateforme */
+}
+
+.platform:last-child {
+    border-right: none; /* Supprime la bordure à droite du dernier élément (LinkedIn) */
+}
+
+.platform img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    transition: transform 0.3s ease;
+}
+
+.platform:hover img {
+    transform: scale(1.05); /* Effet de zoom au survol */
+}
+
+.platform button {
+    display: flex;
+    margin: 20px auto;
+    padding: 15px 20px;
+    background-color: #5f39e9;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.platform button:hover {
+    background-color: #a13cb7; /* Change la couleur au survol */
+}
+</style>

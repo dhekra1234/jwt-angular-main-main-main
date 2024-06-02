@@ -1,0 +1,194 @@
+<app-header></app-header>
+<section class="hero-section">
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="col-md-5">
+              <div class="mt-md-4">
+                  <div>
+                      <h2 class="text-white fw-normal mb-4 mt-0 hero-title">
+                          Bienvenue sur votre guichet unique pour suivre vos performances et atteindre vos objectifs
+                      </h2>
+                  </div>
+                  
+
+                  <p class="mb-4 font-16 text-white-50">Dites adieu aux analyses complexes et bonjour à des informations exploitables en un clin d'œil. Notre application intuitive vous donne le pouvoir de suivre vos performances et d'atteindre vos objectifs en toute simplicité.
+                      Rejoignez la révolution des données dès maintenant ! Inscrivez-vous et commencez à transformer vos insights en actions.
+
+                  </p>
+                  <div id="signup-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <div class="modal-body">
+                                <div class="text-center mt-2 mb-4">
+                                    <a href="index.html" class="text-success">
+                                        <span><img src="assets/images/loggo.png" alt="" height="40"></span>
+                                        <h1 style="color: rgb(176, 127, 191);">SocialKPI</h1>
+
+                                    </a>
+                                </div>
+
+                                <form class="ps-3 pe-3" action="#">
+
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Nom</label>
+                                        <input class="form-control" type="text" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" id="username" required="" placeholder="Votre nom">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="emailaddress" class="form-label">Email</label>
+                                        <input class="form-control" type="email"  [(ngModel)]="email" [ngModelOptions]="{standalone: true}"  id="email" required="" placeholder="exemple@exemple.com">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Mot de passe</label>
+                                        <input class="form-control" type="password" required="" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"id="password" placeholder="Entrer un mot de passe">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="customCheck1">
+                                            <label class="form-check-label" for="customCheck1">J'accepte <a href="#">Les conditons</a></label>
+                                        </div> 
+                                    </div>
+
+                                    <div class="mb-3 text-center">
+                                        <button class="btn btn-primary" type="submit"(click)="save(); $event.preventDefault()">S'inscrire</button>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                <button type="button" class="btn btn-success btn-rounded mt-3 " data-bs-toggle="modal" data-bs-target="#signup-modal">Rejoignez nous maintenant </button>
+          </div>
+          </div>
+          
+          <div class="col-md-5 offset-md-2">
+              <div class="text-md-end mt-3 mt-md-0">
+                  <img src="assets/images/startup.svg" alt="" class="img-fluid">
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- END HERO -->
+
+<!-- START SERVICES -->
+<section class="py-5">
+    <div class="container">
+        
+        <div class="row mt-2 py-5 align-items-center">
+            <div class="col-lg-5">
+                <img src="assets/images/features-1.svg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 offset-lg-1">
+                <h3 class="fw-normal"> Bénéficiez d'une visibilité complète sur vos performances grâce à nos tableaux de bord et à nos indicateurs personnalisables.
+              </h3>
+                <p class="text-muted mt-3">Notre plateforme vous offre une opportunité unique de suivre et d'analyser en détail vos performances sur les réseaux sociaux. Grâce à nos outils avancés, vous bénéficierez d'une vue d'ensemble exhaustive qui vous permettra de comprendre l'impact de vos publications, l'engagement de vos abonnés, et l'évolution de votre audience au fil du temps.
+              </p>
+  
+                <a href="" class="btn btn-primary btn-rounded mt-3" routerLink="/login">Rejoigner nous <i class="mdi mdi-arrow-right ms-1"></i></a>
+  
+            </div>
+        </div>
+  
+        <div class="row pb-3 pt-5 align-items-center">
+            <div class="col-lg-6">
+                <h3 class="fw-normal">Surpassez vos concurrents en identifiant leurs forces et faiblesses grâce à nos analyses comparatives.
+              </h3>
+                <p class="text-muted mt-3">Notre service vous permet non seulement de surveiller vos propres performances sur les réseaux sociaux, mais également de les comparer directement avec celles de vos concurrents. Cette analyse comparative approfondie vous aidera à identifier clairement les domaines où vous excellez et ceux où des améliorations sont nécessaires.
+              </p>
+                <a href="" class="btn btn-success btn-rounded mt-3" routerLink="/login">Rejoigner nous <i class="mdi mdi-arrow-right ms-1"></i></a>
+  
+            </div>
+            <div class="col-lg-5 offset-lg-1">
+                <img src="assets/images/features-2.svg" class="img-fluid" alt="">
+            </div>
+        </div>
+        <div class="row mt-2 py-5 align-items-center">
+          <div class="col-lg-5">
+              <img src="assets/images/report.svg "class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 offset-lg-1">
+              <h3 class="fw-normal"> Prenez le contrôle de votre stratégie social media avec des rapports complets et personnalisés.
+  
+            </h3>
+              <p class="text-muted mt-3">Notre plateforme offre la possibilité de créer des rapports personnalisés qui vous permettent de suivre vos progrès et de mesurer précisément le succès de vos initiatives sur les réseaux sociaux.. En visualisant ces informations dans un format clair et accessible, vous pouvez prendre des décisions éclairées pour optimiser vos efforts et continuer à construire une présence en ligne forte et influente.
+  
+            </p>
+  
+              <a href="" class="btn btn-primary btn-rounded mt-3" routerLink="/login">Rejoigner nous <i class="mdi mdi-arrow-right ms-1"></i></a>
+  
+          </div>
+      </div>
+  
+  
+    </div>
+  </section>
+<!-- END SERVICES -->
+
+<!-- START FEATURES 1 -->
+<section class="py-5 bg-light-lighten border-top border-bottom border-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <h3>Flexible <span class="text-primary">Layouts</span></h3>
+                    <p class="text-muted mt-2">There are three different layout options available to cater need for
+                        any <br> modern web
+                        application.</p>
+                </div>
+            </div>
+        </div>
+  
+        <div class="row mt-4">
+            <div class="col-lg-4">
+                <div class="demo-box text-center">
+                    <img src="assets/images/layouts/layout-1.png" alt="demo-img" class="img-fluid shadow-sm rounded">
+                    <h5 class="mt-3 f-17">Vertical Layout</h5>
+                </div>
+            </div>
+  
+            <div class="col-lg-4">
+                <div class="demo-box text-center mt-3 mt-lg-0">
+                    <img src="assets/images/layouts/layout-2.png" alt="demo-img" class="img-fluid shadow-sm rounded">
+                    <h5 class="mt-3 f-17">Horizontal Layout</h5>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="demo-box text-center mt-3 mt-lg-0">
+                    <img src="assets/images/layouts/layout-3.png" alt="demo-img" class="img-fluid shadow-sm rounded">
+                    <h5 class="mt-3 f-17">Detached Layout</h5>
+                </div>
+            </div>
+        </div>
+  
+        <div class="row mt-4">
+            
+            <div class="col-lg-4">
+                <div class="demo-box text-center">
+                    <img src="assets/images/layouts/layout-5.png" alt="demo-img" class="img-fluid shadow-sm rounded">
+                    <h5 class="mt-3 f-17">Light Sidenav Layout</h5>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="demo-box text-center mt-3 mt-lg-0">
+                    <img src="assets/images/layouts/layout-6.png" alt="demo-img" class="img-fluid shadow-sm rounded">
+                    <h5 class="mt-3 f-17">Boxed Layout</h5>
+                </div>
+            </div>
+  
+            <div class="col-lg-4">
+                <div class="demo-box text-center mt-3 mt-lg-0">
+                    <img src="assets/images/layouts/layout-4.png" alt="demo-img" class="img-fluid shadow-sm rounded">
+                    <h5 class="mt-3 f-17">Semi Dark Layout</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  <!-- END FEATURES 1 -->
+<app-footer></app-footer>

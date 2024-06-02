@@ -1,0 +1,78 @@
+<app-header></app-header>
+<div class="content-container">
+    <div class="url-input-container">
+        <h3>"Découvrez ce que cache votre URL – Analysez-la ici !"</h3>
+        <!-- url-indep.component.html -->
+        <form (submit)="onSubmit()">
+            <input type="url" id="urlField" [(ngModel)]="url" name="url" placeholder="https://exemple.com" required>
+            <button type="submit" routerLink="/dash-indep">Analyser</button>
+        </form>
+    </div>
+    <div class="video-container">
+        <video width="420" height="340"  autoplay loop muted>
+            <source src="assets/res.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+<style>
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Pour aligner les éléments en haut */
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.url-input-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    padding: 20px;
+    margin-right: 20px; /* Espace entre les deux colonnes */
+}
+
+.video-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.url-input-container h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.url-input-container form {
+    width: 100%;
+}
+
+.url-input-container input {
+    width: 100%; /* Pleine largeur du formulaire */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+.url-input-container button {
+    padding: 10px 20px;
+    background-color: #5f39e9;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;   /* Permet au bouton d'être traité comme un bloc */
+    margin: 0 auto;   /* Auto applique une marge automatique sur les côtés gauche et droit, le centrant horizontalement */
+}
+
+
+.url-input-container button:hover {
+    background-color: #a13cb7;
+}
+</style>
+<app-footer></app-footer>

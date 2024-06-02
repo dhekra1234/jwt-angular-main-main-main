@@ -1,0 +1,90 @@
+<body>
+    <div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-4 col-lg-5">
+                    <div class="card">
+    
+                        <!-- Logo -->
+                        <div class="card-header pt-3 pb-3 text-center bg-primary">
+                            <img src="assets/images/loggo.png" alt="Logo de SocialKPI" class="logo-dark" height="40">
+                            <h1 style="color: rgb(208, 152, 225);">SocialKPI</h1>
+                        </div>
+    
+                        <div class="card-body p-4">
+                            
+                            <div class="text-center w-75 m-auto">
+                                <h2 class="text-dark-60 text-center pb-0 fw-bold">Se connecter</h2>
+                                <p class="text-muted mb-4">Entrer votre mot de passe et votre adress email !</p>
+                            </div>
+    
+                            <form (ngSubmit)="onLogin()">
+                                <div class="mb-3">
+                                    <label for="emailaddress" class="form-label">Adress email</label>
+                                    <input class="form-control" type="email" id="email" [(ngModel)]="email" name="email" required placeholder="Entrer votre email">
+                                    <div *ngIf="emailError" class="text-danger">{{ emailError }}</div>
+                                </div>
+    
+                                <div class="mb-3">
+                                    <a href="" class="text-muted float-end" routerLink="/recover-pwd"><small>Mot de passe oublier?</small></a>
+                                    <label for="password" class="form-label">Mot de passe </label>
+                                    <div class="input-group input-group-merge">
+                                        <input type="password" id="password" [(ngModel)]="password" name="password" class="form-control" required placeholder="Entrer votre mot de passe">
+                                        <div class="input-group-text" data-password="false">
+                                            <span class="password-eye"></span>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="passwordError" class="text-danger">{{ passwordError }}</div>
+                                </div>
+    
+                                <div class="mb-3 mb-0 text-center mt-3">
+                                    <button class="btn btn-primary" type="submit">Se connecter</button>
+                                </div>
+                            </form>
+                        </div> <!-- end card-body -->
+                    </div>
+                    <!-- end card -->
+    
+                    <div class="row mt-3">
+                        <div class="col-12 text-center">
+                            <p class="text-muted">Vous n'avez pas un compte? <a href="pages-register.html" routerLink="/register" class="text-muted ms-1"><b>S'inscrire</b></a></p>
+                        </div> <!-- end col -->
+                    </div>
+                    <!-- end row -->
+    
+                </div> <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    
+  <style> 
+    .account-pages {
+      background-image: url('assets/images/bg-pattern-light.svg'); /* Modifiez le chemin pour pointer vers votre image */
+      background-size: cover; /* Ajuster l'image pour qu'elle couvre entièrement l'élément */
+      background-position: center; /* Centrer l'image dans l'élément */
+      background-repeat: no-repeat; /* Ne pas répéter l'image */
+      min-height: 100vh; /* Assurez-vous que l'élément a au moins la hauteur de la fenêtre */
+  }
+  .col-xxl-4.col-lg-5 {
+      max-width: 500px; /* Ou toute autre largeur qui convient à votre design */
+  }
+  .card-header {
+    display: flex; /* Utilise Flexbox pour aligner les éléments côte à côte */
+    align-items: center; /* Aligner verticalement les éléments au centre */
+    justify-content: center; /* Centrer les éléments horizontalement */
+    gap: 10px; /* Ajouter un peu d'espace entre le logo et le h1 */
+}
+
+.logo-dark {
+    display: block; /* Assure que l'image ne soit pas en ligne */
+    height: 40px; /* Hauteur spécifique pour l'image */
+}
+
+h1 {
+    margin: 0; /* Retire la marge par défaut autour de h1 */
+    font-size: 27px; /* Vous pouvez ajuster la taille de police comme désiré */
+}
+  </style>
+</body>

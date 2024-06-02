@@ -1,0 +1,118 @@
+<body>
+  <div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xxl-4 col-lg-5">
+          <div class="card">
+            <!-- Logo -->
+            <div class="card-header pt-3 pb-3 text-center bg-primary">
+              <img src="assets/images/loggo.png" alt="Logo de SocialKPI" class="logo-dark" height="40">
+              <h1 style="color: rgb(208, 152, 225);">SocialKPI</h1>
+            </div>
+  
+            <div class="card-body p-4">
+              <div class="text-center w-75 m-auto">
+                <h1 class="text-dark-50 text-center mt-0 fw-bold">S'inscrire</h1>
+                <p class="text-muted mb-4">Vous n'avez pas de compte ? Créez votre compte, cela prend moins d'une minute.</p>
+              </div>
+  
+              <form (ngSubmit)="onSubmit()">
+                <div class="mb-3" [ngClass]="{'is-invalid': !username && submitted, 'is-valid': username}">
+                  <label for="fullname" class="form-label">Nom</label>
+                  <input class="form-control" type="text" [(ngModel)]="username" name="username" id="fullname" placeholder="Entrer votre nom" required>
+                  <div *ngIf="!username && submitted" class="invalid-feedback">
+                    Le nom est requis.
+                  </div>
+                </div>
+  
+                <div class="mb-3" [ngClass]="{'is-invalid': !email && submitted, 'is-valid': email}">
+                  <label for="emailaddress" class="form-label">Adresse email</label>
+                  <input class="form-control" type="email" [(ngModel)]="email" name="email" id="emailaddress" required placeholder="Entrer votre email">
+                  <div *ngIf="!email && submitted" class="invalid-feedback">
+                    L'adresse email est requise.
+                  </div>
+                </div>
+  
+                <div class="mb-3" [ngClass]="{'is-invalid': passwordErrors().length > 0 && submitted, 'is-valid': passwordErrors().length === 0 && password.length >= 8}">
+                  <label for="password" class="form-label">Mot de passe</label>
+                  <div class="input-group input-group-merge">
+                    <input [type]="hide ? 'password' : 'text'" [(ngModel)]="password" name="password" id="password" class="form-control" placeholder="Entrer votre mot de passe" required minlength="8" pattern="^(?=.*[!@#$%^&*()_\-+=])(?=.*[A-Z]).{8,}$">
+                    <div class="input-group-text" (click)="toggleHide()">
+                      <span class="password-eye"></span>
+                    </div>
+                  </div>
+                  <div *ngIf="passwordErrors().length > 0 && submitted" class="invalid-feedback">
+                    <ul>
+                      <li *ngFor="let error of passwordErrors()">{{ error }}</li>
+                    </ul>
+                  </div>
+                </div>
+  
+                <div class="mb-3" [ngClass]="{'is-invalid': password !== confirmPassword && submitted, 'is-valid': password === confirmPassword && confirmPassword}">
+                  <label for="confirmpassword" class="form-label">Confirmer le mot de passe</label>
+                  <div class="input-group input-group-merge">
+                    <input [type]="hide ? 'password' : 'text'" [(ngModel)]="confirmPassword" name="confirmPassword" id="confirmpassword" class="form-control" placeholder="Confirmer votre mot de passe" required>
+                  </div>
+                  <div *ngIf="password !== confirmPassword && submitted" class="invalid-feedback">
+                    Les mots de passe ne correspondent pas.
+                  </div>
+                </div>
+                <div class="mb-3 text-center">
+                  <button class="btn btn-primary" type="submit">S'inscrire</button>
+                </div>
+              </form>
+            </div>
+          </div>
+  
+          <div class="row mt-3">
+            <div class="col-12 text-center">
+              <p class="text-muted">Vous avez déjà un compte ? <a href="" class="text-muted ms-1" routerLink="/login"><b>Se connecter</b></a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    .account-pages {
+      background-image: url('assets/images/bg-pattern-light.svg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+    }
+    .col-xxl-4.col-lg-5 {
+      max-width: 500px;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .logo-dark {
+      display: block;
+      height: 40px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 27px;
+    }
+    .is-invalid .form-control {
+      border-color: #dc3545;
+    }
+    .is-valid .form-control {
+      border-color: #28a745;
+    }
+    .invalid-feedback {
+      color: #dc3545;
+      display: block;
+    }
+    .valid-feedback {
+      color: #28a745;
+      display: block;
+    }
+  </style>
+  </body>
+  

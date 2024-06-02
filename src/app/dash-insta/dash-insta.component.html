@@ -1,0 +1,10 @@
+<div id="chart-container" style="display: block;">
+    <canvas baseChart
+            [datasets]="chartDataSets"
+            [labels]="chartLabels"
+            [options]="chartOptions"
+            [legend]="chartLegend"
+            [type]="chartType">
+    </canvas>
+  </div>
+  <button (click)="exportPDF()">Export PDF</button>
