@@ -42,7 +42,9 @@ import { UrlLinkProComponent } from './urls/url-link-pro/url-link-pro.component'
 import { ScrapefbService } from './scrapefb.service';
 import { PythonfbService } from 'src/app/pythonfb.service';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-
+import { SharedDataService } from './shared-data.service';
+import { StatAdminComponent } from './stat-admin/stat-admin.component';
+import { AccountService } from './account.service';
 
 
 @NgModule({
@@ -75,7 +77,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     UrlFbProComponent,
     UrlLinkIndepComponent,
     UrlLinkProComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    StatAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +91,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     NgChartsModule,
     NgApexchartsModule
   ],
-  providers: [AuthService,ScrapingService,PythonresultService,ScrapefbService,PythonfbService],
+  providers: [AuthService,ScrapingService,PythonresultService,ScrapefbService,PythonfbService,SharedDataService,AccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

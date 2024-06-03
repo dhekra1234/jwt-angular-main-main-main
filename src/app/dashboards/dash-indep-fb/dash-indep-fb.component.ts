@@ -4,7 +4,9 @@ import { PythonfbService } from 'src/app/pythonfb.service';
 import { Chart } from 'chart.js';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
-
+import { SharedDataService } from 'src/app/shared-data.service'; // Importer le service partagé
+import { AccountService } from 'src/app/account.service'; // Importer le service partagé
+import { AuthService } from 'src/app/auth.service'; // Importer le service partagé
 
 @Component({
   selector: 'app-dash-indep-fb',
@@ -22,19 +24,22 @@ export class DashIndepFbComponent implements OnInit, AfterViewInit {
   averageLikesPerPost: number;
   averageCommentsPerPost: number;
   averageSharesPerPost: number;
+  accountName: string;
 
-  
-  accountName: string = '100044454488720'; // Exemple de compte
   constructor(
     private route: ActivatedRoute,
     private pythonfbService: PythonfbService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private sharedDataService: SharedDataService, 
+    private accountService: AccountService,
+    private authService: AuthService,
   ) { }
 
-  ngOnInit(): void {
-    this.fetchPythonfb(this.accountName);
-  }
-
+    ngOnInit(): void {
+      this.accountName = this.accountService.getAccountName();
+        this.fetchPythonfb(this.accountName);
+      
+      }  
   fetchPythonfb(accountName: string): void {
     this.pythonfbService.getPythonfb(accountName).subscribe(data => {
       this.postsCount = data.posts_count;
@@ -57,83 +62,83 @@ export class DashIndepFbComponent implements OnInit, AfterViewInit {
   }
 
   // Méthode pour mettre à jour le graphique de taux d'engagement
-updateEngagementChart() {
-  const canvas = document.getElementById('engagementChart') as HTMLCanvasElement;
-  if (!canvas) {
-    console.error('Canvas element not found');
-    return;
-  }
-
-  const ctx = canvas.getContext('2d');
-  if (!ctx) {
-    console.error('Canvas context not found');
-    return;
-  }
-
-  // Calcul du taux d'engagement
-  const followersCount = this.followersCount || 1; // Éviter la division par zéro
-  const engagementRate = ((this.totalLikes + this.totalComments + this.totalShares) / followersCount) * 100;
-
-  new Chart(ctx, {
-    type: 'pie',
-    data: {
-      labels: ["Total j'aimes", 'Total commentaires', 'Total partages'],
-      datasets: [{
-        data: [this.totalReacts, this.totalComments, this.totalShares],
-        backgroundColor: [' rgb(207, 205, 205)', '#d098e1', '#727cf5']
-      }]
+  updateEngagementChart() {
+    const canvas = document.getElementById('engagementChart') as HTMLCanvasElement;
+    if (!canvas) {
+      console.error('Canvas element not found');
+      return;
     }
-  });
-}
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) {
+      console.error('Canvas context not found');
+      return;
+    }
+
+    // Calcul du taux d'engagement
+    const followersCount = this.followersCount || 1; // Éviter la division par zéro
+    const engagementRate = ((this.totalLikes + this.totalComments + this.totalShares) / followersCount) * 100;
+
+    new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ["Total j'aimes", 'Total commentaires', 'Total partages'],
+        datasets: [{
+          data: [this.totalReacts, this.totalComments, this.totalShares],
+          backgroundColor: [' rgb(207, 205, 205)', '#d098e1', '#727cf5']
+        }]
+      }
+    });
+  }
 
   // Méthode pour mettre à jour le graphique de moyennes
-updateAverageChart() {
-  const canvas = document.getElementById('averageChart') as HTMLCanvasElement;
-  if (!canvas) {
-    console.error('Canvas element not found');
-    return;
-  }
+  updateAverageChart() {
+    const canvas = document.getElementById('averageChart') as HTMLCanvasElement;
+    if (!canvas) {
+      console.error('Canvas element not found');
+      return;
+    }
 
-  const ctx = canvas.getContext('2d');
-  if (!ctx) {
-    console.error('Canvas context not found');
-    return;
-  }
+    const ctx = canvas.getContext('2d');
+    if (!ctx) {
+      console.error('Canvas context not found');
+      return;
+    }
 
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['J\'aimes', 'Commentaires', 'Partages'], // Étiquettes pour les catégories
-      datasets: [
-        {
-          label: 'Moyenne J\'aimes',
-          data: [this.averageLikesPerPost, 0, 0], // Mettre 0 pour l'alignement
-          backgroundColor: '#d098e1'
-        },
-        {
-          label: 'Moyenne Commentaires',
-          data: [0, this.averageCommentsPerPost, 0], // Mettre 0 pour l'alignement
-          backgroundColor: '#727cf5'
-        },
-        {
-          label: 'Moyenne Partages',
-          data: [0, 0, this.averageSharesPerPost], // Mettre 0 pour l'alignement
-          backgroundColor: ' rgb(207, 205, 205)'
-        }
-      ]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: {
-            precision: 0
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['J\'aimes', 'Commentaires', 'Partages'], // Étiquettes pour les catégories
+        datasets: [
+          {
+            label: 'Moyenne J\'aimes',
+            data: [this.averageLikesPerPost, 0, 0], // Mettre 0 pour l'alignement
+            backgroundColor: '#d098e1'
+          },
+          {
+            label: 'Moyenne Commentaires',
+            data: [0, this.averageCommentsPerPost, 0], // Mettre 0 pour l'alignement
+            backgroundColor: '#727cf5'
+          },
+          {
+            label: 'Moyenne Partages',
+            data: [0, 0, this.averageSharesPerPost], // Mettre 0 pour l'alignement
+            backgroundColor: ' rgb(207, 205, 205)'
+          }
+        ]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              precision: 0
+            }
           }
         }
       }
-    }
-  });
-}
+    });
+  }
 
   ngAfterViewInit(): void {
     this.loadScripts();
@@ -179,37 +184,47 @@ updateAverageChart() {
 
   exportPDF() {
     const elementHTML = document.querySelector('.container') as HTMLElement;
-  
+
     if (elementHTML) {
       html2canvas(elementHTML, { scale: 2 }).then((canvas) => {
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF('landscape', 'mm', 'a3');
-  
+
         const imgProps = pdf.getImageProperties(imgData);
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-  
+
         pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
         pdf.save('export.pdf');
+        this.sharedDataService.incrementReportCount();
+        console.log('PDF exporté, compteur de rapports incrémenté.');
       });
     } else {
       console.error("L'élément HTML n'a pas été trouvé.");
     }
-}
-exportPNG() {
-  const elementHTML = document.querySelector('.container') as HTMLElement;
-
-  if (elementHTML) {
-    html2canvas(elementHTML, { scale: 2 }).then((canvas) => {
-      // Convert the canvas to a PNG and trigger a download
-      const imgData = canvas.toDataURL('image/png');
-      const link = document.createElement('a');
-      link.href = imgData;
-      link.download = 'dashboard.png';
-      link.click();
-    });
-  } else {
-    console.error("L'élément HTML n'a pas été trouvé.");
   }
-}
+
+  exportPNG() {
+    const elementHTML = document.querySelector('.container') as HTMLElement;
+
+    if (elementHTML) {
+      html2canvas(elementHTML, { scale: 2 }).then((canvas) => {
+        // Convert the canvas to a PNG and trigger a download
+        const imgData = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.href = imgData;
+        link.download = 'dashboard.png';
+        link.click();
+        this.sharedDataService.incrementReportCount();
+        console.log('PNG exporté, compteur de rapports incrémenté.');
+      });
+    } else {
+      console.error("L'élément HTML n'a pas été trouvé.");
+    }
+  }
+
+  generateReport() {
+    // Logique pour générer un rapport
+    this.sharedDataService.incrementReportCount();
+  }
 }

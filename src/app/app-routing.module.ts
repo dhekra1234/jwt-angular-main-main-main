@@ -27,6 +27,7 @@ import { UrlFbProComponent } from './urls/url-fb-pro/url-fb-pro.component';
 import { UrlLinkIndepComponent } from './urls/url-link-indep/url-link-indep.component';
 import { UrlLinkProComponent } from './urls/url-link-pro/url-link-pro.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { StatAdminComponent } from './stat-admin/stat-admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -56,8 +57,8 @@ const routes: Routes = [
   { path: "url-fb-pro", component:UrlFbProComponent },
   { path: "url-link-indep", component:UrlLinkIndepComponent },
   { path: "url-link-pro", component:UrlLinkProComponent },
-  { path: "reset-password", component:ResetPasswordComponent }
-
+  { path: "reset-password", component:ResetPasswordComponent },
+  { path: "stat-admin", component:StatAdminComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
